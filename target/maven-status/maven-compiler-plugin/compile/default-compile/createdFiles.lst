@@ -1,0 +1,11 @@
+DataBase\MySQLDatabaseConnector.class
+com\salatil1794\shop\repositories\ProductRepository.class
+com\salatil1794\shop\entities\Entity.class
+com\salatil1794\shop\entities\Product.class
+DataBase\DatabaseConnector.class
+com\salatil1794\shop\repositories\ProductGroupRepository.class
+com\salatil1794\shop\confg\ConexaoMySQL.class
+com\salatil1794\shop\Shop.class
+com\salatil1794\shop\entities\ProductGroup.class
+com\salatil1794\shop\entities\controlles\ProductController.class
+com\salatil1794\shop\entities\ProductGroupController.class
