@@ -18,9 +18,9 @@ public class ProductGroupRepository {
     
     public void save(ProductGroup productGroup) {
         MySQLDatabaseConnector.getInstance().connect();
-        if (productGroup.getId() == null) {
-            productGroup.setId(UUID.randomUUID());
-        }
+//        if (productGroup.getId() == null) {
+//            productGroup.setId(UUID.randomUUID());
+//        }
         //save productGroup
         MySQLDatabaseConnector.getInstance().disconnect();
     }

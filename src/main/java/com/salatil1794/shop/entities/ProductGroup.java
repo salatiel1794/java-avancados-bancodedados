@@ -2,8 +2,9 @@
 package com.salatil1794.shop.entities;
 
 import java.util.UUID;
+import javax.persistence.Entity;
 
-public class ProductGroup extends Entity {
+public class ProductGroup {
     
     private String nome;
     private boolean status;
@@ -15,7 +16,7 @@ public class ProductGroup extends Entity {
     public ProductGroup(String name, float price, long stock) {
         this.nome =  name;
         this.status = status;
-        this.setId(UUID.randomUUID());
+        
     }
 
     /**

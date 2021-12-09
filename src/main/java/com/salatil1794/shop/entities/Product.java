@@ -1,70 +1,94 @@
 
 package com.salatil1794.shop.entities;
 
-import java.util.UUID;
+import java.util.Date;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="products")
 public class Product {
     
-    private String nome;
-    private float price;
-    private long stock;
+    @Id   
+    @Column
+    private String id;
+    
+    @Column
+    private String name;
+    
+    @Column
+    private Integer price;
+    
+    @Column
+    private Integer stock;
+    
+    @Column
     private boolean status;
-    private ProductGroup productGroup;
     
-    public Product() {
-        
-    }
+    @Column(name="product_group_id")
+    private String productGroupId;
     
-    public Product(String name, float price, long stock) {
-        this.nome =  name;
-        this.price = price;
-        this.stock = stock;
-        this.setId(UUID.randomUUID());
-    }
+    @Column(name="created_at")
+    private Date createdAt;
     
+    @Column(name="created_at")
+    private Date updatedAt;
 
     /**
-     * @return the nome
+     * @return the id
      */
-    public String getNome() {
-        return nome;
+    public String getId() {
+        return id;
     }
 
     /**
-     * @param nome the nome to set
+     * @param id the id to set
      */
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    /**
+     * @return the name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * @param name the name to set
+     */
+    public void setName(String name) {
+        this.name = name;
     }
 
     /**
      * @return the price
      */
-    public float getPrice() {
+    public Integer getPrice() {
         return price;
     }
 
     /**
      * @param price the price to set
      */
-    public void setPrice(float price) {
+    public void setPrice(Integer price) {
         this.price = price;
     }
 
     /**
      * @return the stock
      */
-    public long getStock() {
+    public Integer getStock() {
         return stock;
     }
 
     /**
      * @param stock the stock to set
      */
-    public void setStock(long stock) {
+    public void setStock(Integer stock) {
         this.stock = stock;
     }
 
@@ -83,18 +107,45 @@ public class Product {
     }
 
     /**
-     * @return the productGroup
+     * @return the createdAt
      */
-    public ProductGroup getProductGroup() {
-        return productGroup;
+    public Date getCreatedAt() {
+        return createdAt;
     }
 
     /**
-     * @param productGroup the productGroup to set
+     * @param createdAt the createdAt to set
      */
-    public void setProductGroup(ProductGroup productGroup) {
-        this.productGroup = productGroup;
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
     }
-    
+
+    /**
+     * @return the updatedAt
+     */
+    public Date getUpdatedAt() {
+        return updatedAt;
+    }
+
+    /**
+     * @param updatedAt the updatedAt to set
+     */
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    /**
+     * @return the productGroupId
+     */
+    public String getProductGroupId() {
+        return productGroupId;
+    }
+
+    /**
+     * @param productGroupId the productGroupId to set
+     */
+    public void setProductGroupId(String productGroupId) {
+        this.productGroupId = productGroupId;
+    }
     
 }

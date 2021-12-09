@@ -1,13 +1,11 @@
 package com.salatil1794.shop;
 
-import com.salatil1794.shop.confg.ConexaoMySQL;
-import com.salatil1794.shop.entities.ProductGroup;
+import com.salatil1794.shop.entities.Product;
 import com.salatil1794.shop.entities.ProductGroupController;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import com.salatil1794.shop.repositories.ProductRepository;
+import java.util.List;
 import java.util.Scanner;
-import java.util.UUID;
+import java.util.stream.Collectors;
 
 public class Shop {
 
@@ -31,37 +29,20 @@ public class Shop {
 //                + "--------------------------------------------------");
 //    }
     public static void main(String[] args) {
+        ProductRepository repository = new ProductRepository();
+        
         try {
-            Connection conexaoMySQL = ConexaoMySQL.getConexaoMySQL();
-            Statement statement = conexaoMySQL.createStatement();
-            System.out.println(ConexaoMySQL.status);
-//             ResultSet result = statement.executeQuery("");
-
-            //inserindo dados via sql direto
-//        statement.execute("INSERT INTO product_groups (id, name, status) " 
-//                + "VALUES ('" + UUID.randomUUID() + "', 'carnes', true)");
-//             while (result.next()) {
-//                 System.out.println(result.getString("id"));
-            String sql = "INSERT INTO products (id, name, price, stock, "
-                    + "status, product_group_id)"
-                    + "Values ("
-                    + "'" + UUID.randomUUID() + "', "
-                    + "'picanha', "
-                    + "7000, "
-                    + "99, "
-                    + "true, "
-                    + "(SELECT id FROM product_groups LIMIT 1)"
-                    + ")";
-            System.out.println(sql);
-            statement.execute(sql);
-
-//             }
+            List<String> ids = repository.findByName("bovina").stream()
+                    .map(product -> product.getId())
+                    .collect(Collectors.toList());
+            
+            List<Product> products = repository.findByIds(ids);
+            
+            products.forEach(product -> {
+            System.out.println(product.getName());
+        });
         } catch (Exception e) {
             e.printStackTrace();
-
-        } finally {
-            ConexaoMySQL.FecharConexao();
-        }
+        }        
     }
-
 }
