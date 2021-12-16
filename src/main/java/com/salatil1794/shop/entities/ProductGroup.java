@@ -1,20 +1,25 @@
 
 package com.salatil1794.shop.entities;
 
+import java.util.Date;
 import java.util.UUID;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 
 public class ProductGroup {
     
-    private String nome;
+    private Date createdAt;
+    private Date updatedAt;
+    private String name;
     private boolean status;
+    private String id;
     
     public ProductGroup() {
         
     }
     
     public ProductGroup(String name, float price, long stock) {
-        this.nome =  name;
+        this.name =  name;
         this.status = status;
         
     }
@@ -23,14 +28,14 @@ public class ProductGroup {
      * @return the nome
      */
     public String getNome() {
-        return nome;
+        return getName();
     }
 
     /**
      * @param nome the nome to set
      */
     public void setNome(String nome) {
-        this.nome = nome;
+        this.setName(nome);
     }
 
     /**
@@ -46,5 +51,63 @@ public class ProductGroup {
     public void setStatus(boolean status) {
         this.status = status;
     }
+
+    /**
+     * @return the createdAt
+     */
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    /**
+     * @param createdAt the createdAt to set
+     */
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    /**
+     * @return the updatedAt
+     */
+    public Date getUpdatedAt() {
+        return updatedAt;
+    }
+
+    /**
+     * @param updatedAt the updatedAt to set
+     */
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    /**
+     * @return the name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * @param name the name to set
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     * @return the id
+     */
+    public String getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(String id) {
+        this.id = id;
+    }
+
+
     
 }

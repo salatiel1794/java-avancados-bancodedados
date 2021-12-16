@@ -26,15 +26,14 @@ public class Product {
     
     @Column
     private boolean status;
-    
-    @Column(name="product_group_id")
-    private String productGroupId;
-    
+        
     @Column(name="created_at")
     private Date createdAt;
     
     @Column(name="created_at")
     private Date updatedAt;
+    
+    private ProductGroup productGroup;
 
     /**
      * @return the id
@@ -135,17 +134,17 @@ public class Product {
     }
 
     /**
-     * @return the productGroupId
+     * @return the productGroup
      */
-    public String getProductGroupId() {
-        return productGroupId;
+    public ProductGroup getProductGroup() {
+        return productGroup;
     }
 
     /**
-     * @param productGroupId the productGroupId to set
+     * @param productGroup the productGroup to set
      */
-    public void setProductGroupId(String productGroupId) {
-        this.productGroupId = productGroupId;
+    public void setProductGroup(ProductGroup productGroup) {
+        this.productGroup = productGroup;
     }
     
 }
